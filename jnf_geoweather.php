@@ -76,9 +76,9 @@ class Jnf_Geoweather extends Module
         $geoWeather = $this->getGeoWeather();
 
         // Uncomment on localhost to test.
-        $apiKey = 'e39fcbc2db02436eb1f121433210107';
-        $ipAddr = '200.229.216.110';
-        $geoWeather = $this->getGeoWeather($ipAddr, $apiKey);
+        // $apiKey = 'write-your-api-key-here';
+        // $ipAddr = '200.229.216.110';
+        // $geoWeather = $this->getGeoWeather($ipAddr, $apiKey);
 
         if (isset($geoWeather->location) && isset($geoWeather->current)) {
 
