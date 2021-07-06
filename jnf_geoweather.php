@@ -40,6 +40,11 @@ class Jnf_Geoweather extends Module
 
     public function getGeoWeather($ipAddr = false, $apiKey = false, $lang = false)
     {
+        /**
+         * NOTA: Debido a que esta librería ya maneja geo-localización 
+         * no fue necesario ocupar la librería interna de Prestashop para obtener la localización.
+         */
+
         if (!$ipAddr) {
             $ipAddr = Tools::getRemoteAddr();
         }
@@ -74,11 +79,6 @@ class Jnf_Geoweather extends Module
     {
         $output = '';
         $geoWeather = $this->getGeoWeather();
-
-        // Uncomment on localhost to test.
-        // $apiKey = 'write-your-api-key-here';
-        // $ipAddr = '200.229.216.110';
-        // $geoWeather = $this->getGeoWeather($ipAddr, $apiKey);
 
         if (isset($geoWeather->location) && isset($geoWeather->current)) {
 
@@ -181,8 +181,8 @@ class Jnf_Geoweather extends Module
 
         // Title and toolbar
         $helper->title = $this->displayName;
-        $helper->show_toolbar = true;        // false -> remove toolbar
-        $helper->toolbar_scroll = true;      // yes - > Toolbar is always visible on the top of the screen.
+        $helper->show_toolbar = true;
+        $helper->toolbar_scroll = true;
         $helper->submit_action = 'submit'.$this->name;
         $helper->toolbar_btn = [
             'save' => [
